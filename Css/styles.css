@@ -41,14 +41,20 @@ header {
 header .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     width: 100%;
-    gap: 1rem;
+    gap: 0;
+    padding: 0;
 }
 
 .header-top {
     width: 100%;
     text-align: center;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0.5rem;
 }
 
 header h1 {
@@ -69,10 +75,22 @@ header h1:hover {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 1rem;
     padding: 0 1rem;
+}
+
+.header-bottom > nav {
+    order: 1;
+}
+
+.header-bottom > .search-bar {
+    order: 2;
+}
+
+.header-bottom > .auth-buttons {
+    order: 3;
 }
 
 .search-bar {
@@ -437,24 +455,36 @@ footer a:hover {
     }
 
     header .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .header-top {
-        margin-bottom: 1rem;
-    }
-
-    .header-bottom {
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
-        width: 100%;
-        max-width: 1400px;
+        gap: 0;
         padding: 0;
     }
-
-    header nav {
+    .header-top {
+        width: auto;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: left;
+    }
+    .header-bottom {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1.5rem;
+        width: auto;
+        padding: 0;
+    }
+    .header-bottom > nav {
         order: 1;
+    }
+    .header-bottom > .search-bar {
+        order: 2;
+    }
+    .header-bottom > .auth-buttons {
+        order: 3;
     }
 
     .search-bar {

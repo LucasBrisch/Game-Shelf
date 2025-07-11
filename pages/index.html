@@ -6,6 +6,32 @@
     <title>Game Shelf - Sua Estante de Jogos</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Css/styles.css">
+    <style>
+        .auth-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+        .login-btn, .register-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .login-btn:hover, .register-btn:hover {
+            background-color: var(--accent-hover);
+        }
+        @media (max-width: 1023px) {
+            .auth-buttons {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -27,6 +53,10 @@
                 <div class="search-bar">
                     <span class="search-icon">&#128269;</span> <!-- Ícone de lupa -->
                     <input type="search" placeholder="Pesquisar jogos, amigos...">
+                </div>
+                <div class="auth-buttons">
+                    <button class="login-btn">Login</button>
+                    <button class="register-btn">Registrar</button>
                 </div>
             </div>
         </div>
