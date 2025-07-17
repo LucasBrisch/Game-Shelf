@@ -258,6 +258,31 @@ section {
     line-height: 1;
 }
 
+.auth-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 1rem;
+}
+.login-btn, .register-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.login-btn:hover, .register-btn:hover {
+    background-color: var(--accent-hover);
+}
+@media (max-width: 1023px) {
+    .auth-buttons {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+}
+
 .game-card .rating .score {
     margin-left: 0.5rem;
     font-size: 0.875rem;
