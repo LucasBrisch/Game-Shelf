@@ -1,4 +1,9 @@
--- Users table
+-- Drop e cria o banco de dados
+DROP DATABASE IF EXISTS gameshelf;
+CREATE DATABASE IF NOT EXISTS gameshelf;
+USE gameshelf;
+
+-- Tabela de usuários
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
@@ -8,7 +13,7 @@ CREATE TABLE users (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- Games table
+-- Tabela de jogos
 CREATE TABLE games (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -19,7 +24,7 @@ CREATE TABLE games (
     genre VARCHAR(255)
 );
 
--- User's game list table
+-- Tabela de lista de jogos do usuário
 CREATE TABLE user_games (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -27,26 +32,26 @@ CREATE TABLE user_games (
     status ENUM('Playing', 'Completed', 'Dropped', 'Wishlist') NOT NULL,
     personal_rating INT CHECK (personal_rating BETWEEN 0 AND 10),
     added_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-
+    
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (game_id) REFERENCES games(id) ON DELETE CASCADE
 );
 
---friendship's table
+-- Tabela de amizades
 CREATE TABLE friendships (
     id INT AUTO_INCREMENT PRIMARY KEY,
     requester_id INT NOT NULL,
     receiver_id INT NOT NULL,
     status ENUM('pending', 'accepted', 'rejected') DEFAULT 'pending',
     requested_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    
+
     FOREIGN KEY (requester_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (receiver_id) REFERENCES users(id) ON DELETE CASCADE,
 
     CONSTRAINT unique_friendship UNIQUE (requester_id, receiver_id)
 );
 
--- rating's table
+-- Tabela de avaliações
 CREATE TABLE ratings (
     id INT AUTO_INCREMENT PRIMARY KEY,
     rater_id INT NOT NULL,
@@ -59,4 +64,3 @@ CREATE TABLE ratings (
 
     UNIQUE (rater_id, rated_game_id)
 );
-
