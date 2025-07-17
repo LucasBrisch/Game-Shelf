@@ -26,6 +26,14 @@ VALUES
     'Matt Makes Games',
     'Platformer'
 ),
+(    
+    'Elden Ring',
+    'Action RPG in a dark fantasy world created by FromSoftware and George R. R. Martin.',
+    'https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg',
+    '2022-02-25',
+    'FromSoftware',
+    'RPG'
+),
 (
     'Hades',
     'Roguelike dungeon crawler inspired by Greek mythology.',
