@@ -122,6 +122,58 @@ function renderTable(filtered) {
     const jogosData = <?php echo json_encode(array_values($requests)); ?>;
     renderTable(jogosData);
 
+    // MODAL: Função para abrir e preencher o modal
+    function openGameModal(gameId) {
+        const modal = document.getElementById('gameDetailsModal');
+        // Limpa dados antigos
+        document.getElementById('modalGameImage').src = '';
+        document.getElementById('modalGameTitle').textContent = '';
+        document.getElementById('modalGameGenreStudio').textContent = '';
+        document.getElementById('modalGameRating').innerHTML = '';
+        document.getElementById('modalGameDescription').textContent = '';
+
+        fetch(`game_details.php?id=${gameId}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('modalGameTitle').textContent = data.error;
+                    return;
+                }
+                document.getElementById('modalGameImage').src = data.game_cover_url;
+                document.getElementById('modalGameTitle').textContent = data.title;
+                document.getElementById('modalGameGenreStudio').textContent = `${data.genre} • ${data.developer}`;
+                document.getElementById('modalGameDescription').textContent = data.description;
+                // Nota destacada, sem estrelas
+                let ratingHtml = '';
+                if (data.average_rating !== null) {
+                    ratingHtml = `<span style='font-size:2.2em;font-weight:bold;color:#2e7d32;'>${data.average_rating}</span><span style='font-size:1em;color:#888;'> / 10</span>`;
+                } else {
+                    ratingHtml = '<span style="color:#ccc; font-size:1.2em;">Sem avaliação</span>';
+                }
+                document.getElementById('modalGameRating').innerHTML = ratingHtml;
+                modal.style.display = 'flex';
+            })
+            .catch(() => {
+                document.getElementById('modalGameTitle').textContent = 'Erro ao carregar detalhes.';
+            });
+    }
+
+    // LOGICA DO BOTAO DE DETALHES
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('view-details-btn')) {
+            const card = e.target.closest('.game-card');
+            if (card) {
+                openGameModal(card.dataset.gameId);
+            }
+        }
+        if (e.target.id === 'closeModalBtn') {
+            document.getElementById('gameDetailsModal').style.display = 'none';
+        }
+        // Fecha modal ao clicar fora do conteúdo
+        if (e.target.id === 'gameDetailsModal') {
+            document.getElementById('gameDetailsModal').style.display = 'none';
+        }
+    });
 </script>           
             <!-- Seção Sobre o Game Shelf -->
             <section class="about-section">
