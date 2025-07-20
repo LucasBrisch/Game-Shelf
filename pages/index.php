@@ -132,7 +132,7 @@ function renderTable(filtered) {
         document.getElementById('modalGameRating').innerHTML = '';
         document.getElementById('modalGameDescription').textContent = '';
 
-        fetch(`game_details.php?id=${gameId}`)
+        fetch(`../apis/get_game_details.php?id=${gameId}`)
             .then(res => res.json())
             .then(data => {
                 if (data.error) {
@@ -143,13 +143,9 @@ function renderTable(filtered) {
                 document.getElementById('modalGameTitle').textContent = data.title;
                 document.getElementById('modalGameGenreStudio').textContent = `${data.genre} • ${data.developer}`;
                 document.getElementById('modalGameDescription').textContent = data.description;
-                // Nota destacada, sem estrelas
                 let ratingHtml = '';
-                if (data.average_rating !== null) {
-                    ratingHtml = `<span style='font-size:2.2em;font-weight:bold;color:#2e7d32;'>${data.average_rating}</span><span style='font-size:1em;color:#888;'> / 10</span>`;
-                } else {
-                    ratingHtml = '<span style="color:#ccc; font-size:1.2em;">Sem avaliação</span>';
-                }
+                ratingHtml = `<span style='font-size:2.2em;font-weight:bold;color:#2e7d32;'>${data.average_rating}</span><span style='font-size:1em;color:#888;'> / 10</span>`;
+                
                 document.getElementById('modalGameRating').innerHTML = ratingHtml;
                 modal.style.display = 'flex';
             })
@@ -209,13 +205,12 @@ function renderTable(filtered) {
                     <h3 id="modalGameTitle" class="modal-title"></h3>
                     <p id="modalGameGenreStudio" class="modal-genre-studio"></p>
                     <div id="modalGameRating" class="modal-rating">
-                        <!-- Estrelas serão preenchidas via JS -->
+                        
                     </div>
                 </div>
             </div>
             <p id="modalGameDescription" class="modal-description"></p>
-            <button class="add-to-list-btn">Adicionar à minha lista</button> <!-- Novo botão adicionado aqui -->
-            <!-- Mais detalhes podem ser adicionados aqui -->
+            <button class="add-to-list-btn">Adicionar à minha lista</button>
         </div>
     </div>
 

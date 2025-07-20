@@ -24,7 +24,11 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($row = $result->fetch_assoc()) {
-    $row['average_rating'] = is_null($row['average_rating']) ? null : round(floatval($row['average_rating']), 2);
+    if (is_null($row['average_rating'])) {
+        $row['average_rating'] = null;
+    } else {
+        $row['average_rating'] = round(floatval($row['average_rating']), 2);
+    }
     echo json_encode($row);
 } else {
     echo json_encode(['error' => 'Jogo não encontrado']);
