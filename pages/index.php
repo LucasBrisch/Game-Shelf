@@ -59,9 +59,10 @@ if ($result->num_rows > 0) {
                         <li><a href="#">Comunidade</a></li>
                     </ul>
                 </nav>
-                <div class="search-bar">
-                    <span class="search-icon">&#128269;</span> <!-- Ícone de lupa -->
-                    <input type="search" placeholder="Pesquisar jogos, amigos...">
+                <div class="search-bar" style="position:relative;">
+                    <span class="search-icon">&#128269;</span> 
+                    <input type="search" placeholder="Pesquisar jogos, pessoas..." id="main-search" oninput="rendersearch(this.value)">
+                    <div class="search-modal-results" id="modaldebusca" style="display:none;"></div>
                 </div>
                 <div class="auth-buttons">
                     <button class="login-btn">Login</button>
@@ -70,6 +71,54 @@ if ($result->num_rows > 0) {
             </div>
         </div>
     </header>
+
+
+<script>
+    function rendersearch(searchtext) {
+    const busca = document.getElementById('modaldebusca');
+    busca.style.display = searchtext.length > 0 ? 'block' : 'none';
+    busca.innerHTML = '';
+
+    if (searchtext.length === 0) return;
+
+    fetch('../apis/search.php?term=' + encodeURIComponent(searchtext))
+        .then(res => res.json())
+        .then(data => {
+            if (data.length === 0) {
+                busca.innerHTML = '<p class="search-result-empty">Nenhum resultado encontrado.</p>';
+            } else {
+                data.slice(0, 8).forEach(item => {
+                    let img = item.type === 'game' && item.game_cover_url
+                        ? `<img src="${item.game_cover_url}" alt="Capa do Jogo" class="search-result-img">`
+                        : `<span class="search-result-img">👤</span>`;
+                    busca.innerHTML += `
+                        <div class="search-result-item">
+                            ${img}
+                            <div class="search-result-info">
+                                <span class="search-result-name">${item.name}</span>
+                                <span class="search-result-type">${item.type === 'game' ? 'Jogo' : 'Usuário'}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+        });
+}
+
+// Fecha o modal ao clicar fora ou pressionar ESC
+document.addEventListener('click', function(e) {
+    const busca = document.getElementById('modaldebusca');
+    const searchBar = document.getElementById('main-search');
+    if (busca.style.display === 'block' && !busca.contains(e.target) && e.target !== searchBar) {
+        busca.style.display = 'none';
+    }
+});
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.getElementById('modaldebusca').style.display = 'none';
+    }
+});
+</script>
 
     <!-- Conteúdo Principal -->
     <main>
