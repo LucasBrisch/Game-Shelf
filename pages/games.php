@@ -10,6 +10,7 @@ $sql = "
 ";  
 
 $result = $conn->query($sql);
+$num_rows = 0;
 
 $requests = [];
 if ($result->num_rows > 0) {
