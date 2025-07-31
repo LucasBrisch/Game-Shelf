@@ -7,13 +7,14 @@ $sql = "
     LEFT JOIN ratings r ON g.id = r.rated_game_id
     GROUP BY g.id
     ORDER BY average_rating DESC
-";
+";  
 
 $result = $conn->query($sql);
 
 $requests = [];
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
+        $num_rows++;
         $id = (int)$row['id'];
 
         $requests[$id] = [
@@ -129,14 +130,8 @@ document.addEventListener('keydown', function(e) {
     <!-- Conteúdo Principal -->
     <main>
         <div class="container">
-            <section class="hero-section">
-                <h2>Organize, Avalie e Compartilhe Seus Jogos!</h2>
-                <p>Game Shelf é sua estante virtual para acompanhar o progresso, registrar avaliações e compartilhar opiniões com outros jogadores.</p>
-            </section>
-
-            <!-- Seção de Jogos Em Destaque -->
             <section>
-                <h3 class="section-title">Jogos em Destaque</h3>
+                <h3 class="section-title">Jogos : <?php echo "$num_rows"  ?>  </h3>
                 <div class="game-grid" id="jogos">
             </section>
 
@@ -152,11 +147,10 @@ function renderTable(filtered) {
         return;
     }
 
-    filtered.slice(0, 4).forEach(req => {
+    filtered.forEach(req => {
         const div = document.createElement('div');
         div.className = 'game-card';
         div.dataset.gameId = req.id;
-
         div.innerHTML = `
             <img src="${req.game_cover_url}" alt="capa do jogo ${req.title}">
             <div class="game-card-content">
@@ -226,16 +220,7 @@ function renderTable(filtered) {
         }
     });
 </script>           
-            <!-- Seção Sobre o Game Shelf -->
-            <section class="about-section">
-                <h3>Sobre o Game Shelf</h3>
-                <p>
-                    Inspirado no MyAnimeList, o Game Shelf é a sua plataforma definitiva para gerenciar sua coleção de jogos.
-                    Acompanhe o progresso de cada título, desde o status "Planejando Jogar" até "Completado".
-                    Registre suas avaliações, escreva resenhas detalhadas e descubra novos jogos com base nas opiniões da comunidade.
-                    Conecte-se com amigos, veja o que eles estão jogando e compartilhe suas paixões por games em um ambiente intuitivo e divertido.
-                </p>
-            </section>
+           
         </div>
     </main>
 
