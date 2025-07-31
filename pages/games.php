@@ -67,8 +67,8 @@ if ($result->num_rows > 0) {
                     <div class="search-modal-results" id="modaldebusca" style="display:none;"></div>
                 </div>
                 <div class="auth-buttons">
-                    <button class="login-btn">Login</button>
-                    <button class="register-btn">Registrar</button>
+                    <button class="login-btn" onclick="window.location.href='login.php'">Login</button>
+                    <button class="register-btn" onclick="window.location.href='register.php'">Registrar</button>
                 </div>
             </div>
         </div>

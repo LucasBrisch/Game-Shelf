@@ -70,8 +70,8 @@ $average_rating = $game['average_rating'] ? round($game['average_rating'], 1) : 
                     </ul>
                 </nav>
                 <div class="auth-buttons">
-                    <button class="login-btn">Login</button>
-                    <button class="register-btn">Registrar</button>
+                    <button class="login-btn" onclick="window.location.href='login.php'">Login</button>
+                    <button class="register-btn" onclick="window.location.href='register.php'">Registrar</button>
                 </div>
             </div>
         </div>

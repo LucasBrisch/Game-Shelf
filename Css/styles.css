@@ -262,7 +262,37 @@ section {
     display: flex;
     gap: 0.5rem;
     margin-left: 1rem;
+    align-items: center;
 }
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-greeting {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.logout-btn {
+    background-color: rgba(239, 68, 68, 0.8);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.9rem;
+}
+
+.logout-btn:hover {
+    background-color: rgba(239, 68, 68, 1);
+}
+
 .login-btn, .register-btn {
     background-color: var(--accent-color);
     color: white;
@@ -273,13 +303,30 @@ section {
     cursor: pointer;
     transition: background-color 0.2s;
 }
+
 .login-btn:hover, .register-btn:hover {
     background-color: var(--accent-hover);
+}
+
+nav a.active {
+    color: var(--accent-color);
+    background-color: rgba(79, 70, 229, 0.1);
 }
 @media (max-width: 1023px) {
     .auth-buttons {
         margin-left: 0;
         margin-top: 0.5rem;
+    }
+    
+    .user-menu {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .user-greeting {
+        font-size: 0.85rem;
+        text-align: center;
     }
 }
 
