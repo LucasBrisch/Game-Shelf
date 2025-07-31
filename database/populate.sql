@@ -1,62 +1,173 @@
-use gameshelf;
+-- Use o banco de dados gameshelf
+USE gameshelf;
 
--- Usuários
+-- -------------------------------------------------------------
+-- Popula a tabela 'users'
+-- -------------------------------------------------------------
 INSERT INTO users (full_name, username, email, password_hash) VALUES
-('User One', 'userone', 'user1@example.com', 'senha123'),
-('User Two', 'usertwo', 'user2@example.com', 'senha123'),
-('User Three', 'userthree', 'user3@example.com', 'senha123'),
-('User Four', 'userfour', 'user4@example.com', 'senha123'),
-('User Five', 'userfive', 'user5@example.com', 'senha123'),
-('User Six', 'usersix', 'user6@example.com', 'senha123'),
-('User Seven', 'userseven', 'user7@example.com', 'senha123'),
-('User Eight', 'usereight', 'user8@example.com', 'senha123'),
-('User Nine', 'usernine', 'user9@example.com', 'senha123'),
-('User Ten', 'userten', 'user10@example.com', 'senha123');
+('João da Silva', 'joao.s', 'joao.s@email.com', 'hash_joao123'),
+('Maria Santos', 'maria.s', 'maria.s@email.com', 'hash_maria456'),
+('Carlos Pereira', 'carlos.p', 'carlos.p@email.com', 'hash_carlos789'),
+('Ana Oliveira', 'ana.o', 'ana.o@email.com', 'hash_ana012'),
+('Pedro Costa', 'pedro.c', 'pedro.c@email.com', 'hash_pedro345'),
+('Sofia Almeida', 'sofia.a', 'sofia.a@email.com', 'hash_sofia678'),
+('Ricardo Fernandes', 'ricardo.f', 'ricardo.f@email.com', 'hash_ricardo901'),
+('Mariana Rocha', 'mariana.r', 'mariana.r@email.com', 'hash_mariana234'),
+('Felipe Gomes', 'felipe.g', 'felipe.g@email.com', 'hash_felipe567'),
+('Luciana Martins', 'luciana.m', 'luciana.m@email.com', 'hash_luciana890');
 
--- Jogos
+-- -------------------------------------------------------------
+-- Popula a tabela 'games' com descrições detalhadas
+-- -------------------------------------------------------------
 INSERT INTO games (title, description, game_cover_url, release_date, developer, genre) VALUES
-('The Witcher 3: Wild Hunt', 'A fantasy RPG where you play as Geralt, a monster hunter.', 'https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg', '2015-05-18', 'CD Projekt Red', 'RPG'),
-('Celeste', 'A platformer about climbing a mountain and overcoming challenges.', 'https://upload.wikimedia.org/wikipedia/en/9/9d/Celeste_boxart.jpg', '2018-01-25', 'Matt Makes Games', 'Platformer'),
-('Hades', 'A roguelike dungeon crawler where you play as the son of Hades.', 'https://upload.wikimedia.org/wikipedia/en/e/e0/Hades_cover_art.jpg', '2020-09-17', 'Supergiant Games', 'Roguelike'),
-('Stardew Valley', 'A relaxing farming simulator where you restore a farm.', 'https://upload.wikimedia.org/wikipedia/en/1/1c/Stardew_Valley_cover_art.jpg', '2016-02-26', 'ConcernedApe', 'Simulation'),
-('Hollow Knight', 'An action-adventure metroidvania set in a bug-filled world.', 'https://upload.wikimedia.org/wikipedia/en/3/32/Hollow_Knight_cover.jpg', '2017-02-24', 'Team Cherry', 'Metroidvania');
+('The Witcher 3: Wild Hunt', 'Explore um vasto mundo aberto como o caçador de monstros Geralt de Rívia. Com um enredo complexo e escolhas morais que realmente importam, embarque na caça à Ciri, a Criança da Profecia. O jogo é aclamado por sua narrativa madura e missões secundárias ricas que se interligam com a história principal.', 'https://tse4.mm.bing.net/th/id/OIP.5S7aMdh8GhtRMhgqT_lqKAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', '2015-05-19', 'CD Projekt Red', 'RPG, Ação'),
+('Cyberpunk 2077', 'Mergulhe em Night City, uma megalópole futurista e distópica, como V, um mercenário fora da lei. Este RPG de ação em primeira pessoa oferece total liberdade para personalizar seu personagem, suas habilidades e seu estilo de jogo. Desvende os segredos de um implante de chip que pode ser a chave para a imortalidade.', 'https://assets-prd.ignimgs.com/2020/07/16/cyberpunk-2077-button-fin-1594877291453.jpg', '2020-12-10', 'CD Projekt Red', 'RPG, Ação, Ficção Científica'),
+('Red Dead Redemption 2', 'Viva o épico faroeste como Arthur Morgan, um membro da gangue de Dutch van der Linde. Em 1899, no declínio do Velho Oeste, o grupo de foras da lei tenta sobreviver em meio a caçadores de recompensa e agentes federais. Explore um mundo imenso, com uma atenção obsessiva aos detalhes e uma narrativa que se aprofunda na lealdade e na honra.', 'https://hdqwalls.com/wallpapers/red-dead-redemption-2-game-characters-cc.jpg', '2018-10-26', 'Rockstar Games', 'Ação, Aventura'),
+('Grand Theft Auto V', 'Acompanhe a história de três criminosos muito diferentes — o golpista de rua Franklin, o ex-ladrão de bancos Michael e o psicopata Trevor — enquanto eles se envolvem em uma série de assaltos perigosos na cidade de Los Santos e no condado de Blaine. GTA V é conhecido por seu mundo aberto massivo, sátira social e liberdade de ação incomparável.', 'https://th.bing.com/th/id/R.1f61de5c95100c4635fb92e7ea4f14b0?rik=WOJHcjJdddZnyQ&pid=ImgRaw&r=0', '2013-09-17', 'Rockstar North', 'Ação, Aventura, Mundo Aberto'),
+('Elden Ring', 'Erga-se, Maculado, e seja guiado pela graça para empunhar o poder do Anel Prístino e se tornar um Lorde Prístino nas Terras Intermédias. Elden Ring é um RPG de ação de mundo aberto criado por FromSoftware, conhecido por sua dificuldade desafiadora, exploração vasta e uma história rica e misteriosa co-escrita com George R.R. Martin.', 'https://tse1.mm.bing.net/th/id/OIP._YJTheo9Ktdeb4ZTFLGknwHaET?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', '2022-02-25', 'FromSoftware', 'Ação, RPG'),
+('Minecraft', 'Minecraft é um jogo de sandbox que oferece total liberdade para construir, criar e explorar. Construa estruturas incríveis, crie ferramentas e lute contra monstros em um mundo gerado proceduralmente, feito inteiramente de blocos. O jogo não tem objetivos fixos, permitindo que os jogadores criem suas próprias aventuras.', 'https://store-images.s-microsoft.com/image/apps.60323.14294656681058683.4d17bdd8-7026-429a-846f-cf7836bc9e56.a69e6905-8926-4a48-b243-14a039b97aae?mode=scale&q=90&h=1080&w=1920&format=jpg', '2011-11-18', 'Mojang Studios', 'Sandbox, Sobrevivência'),
+('God of War (2018)', 'Nesta jornada de Kratos e seu filho Atreus pelo reino nórdico de Midgard, o "Fantasma de Esparta" precisa dominar sua raiva para proteger seu filho e cumprir uma promessa feita à sua falecida esposa. Com uma perspectiva de câmera fixa e combate brutal, God of War redefine a série e sua narrativa emocionante.', 'https://tse1.mm.bing.net/th/id/OIP.Fk0QjOdT2GOMMPv2_NrWAwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', '2018-04-20', 'Santa Monica Studio', 'Ação, Aventura'),
+('The Legend of Zelda: Breath of the Wild', 'Acorde como Link em um vasto reino em ruínas, sem memórias de seu passado. Em The Legend of Zelda: Breath of the Wild, a exploração é a chave para a sobrevivência. Use a física do mundo e suas ferramentas para resolver puzzles e enfrentar o terrível Calamity Ganon, que ameaça destruir todo o reino de Hyrule.', 'https://tse2.mm.bing.net/th/id/OIP.y6g8vlIvCS_AtXvnIk2-EQHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', '2017-03-03', 'Nintendo EPD', 'Ação, Aventura'),
+('Stardew Valley', 'Cansado da rotina da cidade, você se muda para Stardew Valley para herdar a velha fazenda do seu avô. Com ferramentas simples e algumas moedas, você deve aprender a viver da terra, criar animais, interagir com os moradores da cidade e talvez até encontrar o amor. Um RPG de simulação de fazenda com um toque de fantasia e muito charme.', 'https://static1.srcdn.com/wordpress/wp-content/uploads/2023/03/stardew-valley-cover.jpg', '2016-02-26', 'ConcernedApe', 'Simulação, RPG'),
+('Hades', 'Jogue como Zagreus, o filho de Hades, enquanto ele tenta escapar do submundo. Neste roguelike de ação, cada tentativa de fuga é diferente. Enfrente deuses e monstros mitológicos e conte com o apoio dos deuses do Olimpo, que concedem poderes e bênçãos temporárias. Uma narrativa viciante e um combate fluido e recompensador.', 'https://tse4.mm.bing.net/th/id/OIP.FY_RN-TPkt7Rdjg2NPOzpQHaDt?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', '2020-09-17', 'Supergiant Games', 'Roguelike, Ação'),
+('Persona 5 Royal', 'Em Persona 5 Royal, um grupo de estudantes do ensino médio em Tóquio descobre seus alter-egos e formam os "Ladrões Fantasmas de Corações". Eles se aventuram em palácios metafísicos para roubar os desejos distorcidos de adultos corruptos, a fim de reformar a sociedade. Um JRPG estiloso, com uma história cativante e complexa.', 'https://tse4.mm.bing.net/th/id/OIP.8cZN0vSukPaJv7wfTqmWlAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', '2020-03-31', 'Atlus', 'RPG'),
+('Baldur''s Gate 3', 'Reúna seu grupo e retorne aos Reinos Esquecidos em uma história de companheirismo e traição, sacrifício e sobrevivência, e o fascínio do poder absoluto. Com base no universo de Dungeons & Dragons, Baldur''s Gate 3 é um RPG tático com escolhas que moldam a história e a liberdade de um jogo de mesa.', 'https://tse1.mm.bing.net/th/id/OIP.IgnC9-uEQBZNRLAg6j4CQgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', '2023-08-03', 'Larian Studios', 'RPG, Tático'),
+('Hollow Knight', 'Viaje por um vasto reino arruinado de insetos e heróis, em um jogo de plataforma 2D desafiador. Hollow Knight é um metroidvania com um estilo de arte belíssimo e uma atmosfera melancólica, onde você deve lutar contra criaturas corrompidas e descobrir os segredos do reino de Hallownest.', 'https://tse2.mm.bing.net/th/id/OIP.JUuhLQJQMCV6IIzoYfcFAgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', '2017-02-24', 'Team Cherry', 'Metroidvania, Ação'),
+('DOOM Eternal', 'Torne-se o Slayer e volte para a Terra em DOOM Eternal, o jogo de tiro em primeira pessoa ultra-rápido e brutal. Destrua hordes de demônios de outras dimensões com um arsenal devastador. Gerencie recursos no meio do combate para continuar sua matança implacável em uma jornada para salvar a humanidade.', 'https://images.wallpapersden.com/image/download/doom-eternal-8k-poster_a21ra22UmZqaraWkpJRnbmhnrWduaGc.jpg', '2020-03-20', 'id Software', 'FPS'),
+('Resident Evil 4 (Remake)', 'Em Resident Evil 4, Leon S. Kennedy é enviado a uma vila remota na Espanha para resgatar a filha do presidente, que foi sequestrada. O remake moderniza a jogabilidade e a história, mantendo a atmosfera de terror e ação do original. Lute contra cultistas controlados e mutantes grotescos em uma das missões de resgate mais perigosas já vistas.', 'https://tse2.mm.bing.net/th/id/OIP.dKWunEbPwftWbbE87FBfYwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', '2023-03-24', 'Capcom', 'Survival Horror'),
+('Mass Effect Legendary Edition', 'Reviva a saga épica de Comandante Shepard na trilogia Mass Effect. Mass Effect Legendary Edition inclui os três jogos remasterizados, todo o conteúdo para download e melhorias visuais. Faça escolhas que afetam o destino da galáxia enquanto você lidera uma equipe de heróis para combater uma ameaça alienígena iminente.', 'https://th.bing.com/th/id/R.bf3409328d1413534acb229391feb9d2?rik=J7HdAlsuk3r06Q&pid=ImgRaw&r=0', '2021-05-14', 'BioWare', 'RPG, Ficção Científica'),
+('Sekiro: Shadows Die Twice', 'Neste jogo de ação e aventura, você é o "Lobo de um braço só", um shinobi desgraçado, resgatado à beira da morte. Sekiro: Shadows Die Twice se passa no Japão feudal e exige maestria no combate com espada. A mecânica de postura e o uso estratégico de próteses shinobi fazem dele um jogo de FromSoftware único e desafiador.', 'https://tse4.mm.bing.net/th/id/OIP.N2gl68MKG_Mw5nUMRXKi2QHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', '2019-03-22', 'FromSoftware', 'Ação, Aventura'),
+('Horizon Zero Dawn', 'Em um futuro pós-apocalíptico onde a natureza recuperou o planeta, máquinas colossais em forma de animais dominam a terra. Jogue como Aloy, uma caçadora banida que se aventura a descobrir os mistérios por trás do seu nascimento e do mundo em ruínas que ela habita. Horizon Zero Dawn é um RPG de ação de mundo aberto com um combate único e uma história fascinante.', 'https://assets-prd.ignimgs.com/2024/09/24/horizonremastered-1727220475281.jpg', '2017-02-28', 'Guerrilla Games', 'Ação, RPG'),
+('Ori and the Will of the Wisps', 'Acompanhe Ori em sua jornada em um mundo vasto e exótico para salvar seu amigo Ku e, por fim, curar o reino de Niwen. Ori and the Will of the Wisps é um jogo de plataforma 2D com gráficos e trilha sonora impressionantes, que combina combate fluído e desafios de plataforma emocionantes com uma narrativa tocante e emotiva.', 'https://th.bing.com/th/id/R.7ba8867ffe8fa3e904f71761b24b5303?rik=%2fkqogcEbT67%2fqw&pid=ImgRaw&r=0', '2020-03-11', 'Moon Studios', 'Plataforma, Aventura'),
+('Control', 'Após uma força de outro mundo invadir o The Oldest House, o quartel-general de uma agência secreta, Jesse Faden se torna a nova diretora. Use poderes telecinéticos e armas mutáveis para lutar contra a Hiss, uma ameaça que distorce a realidade. Control é um jogo de ação com uma história intrigante e uma atmosfera de ficção científica bizarra e misteriosa.', 'https://tse1.mm.bing.net/th/id/OIP.CkA_oDscqXBicFdYtg9uwwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', '2019-08-27', 'Remedy Entertainment', 'Ação, Aventura');
 
--- Avaliações - The Witcher 3
-INSERT INTO ratings (rater_id, rated_game_id, rating, rate_description) VALUES
-(1, 1, 10, 'Obra-prima.'),
-(2, 1, 9, 'História envolvente.'),
-(3, 1, 8.5, 'Boa, mas meio longa.'),
-(4, 1, 9.2, 'Narrativa excelente.'),
-(5, 1, 8.8, 'Imersivo e detalhado.');
+-- -------------------------------------------------------------
+-- Popula a tabela 'user_games'
+-- -------------------------------------------------------------
+INSERT INTO user_games (user_id, game_id, status, personal_rating) VALUES
+(1, 1, 'Completed', 10),
+(1, 2, 'Playing', 8),
+(1, 10, 'Wishlist', NULL),
+(2, 3, 'Completed', 9),
+(2, 5, 'Playing', 9),
+(3, 4, 'Completed', 8),
+(3, 11, 'Wishlist', NULL),
+(4, 6, 'Playing', 10),
+(4, 7, 'Completed', 10),
+(5, 8, 'Completed', 9),
+(5, 12, 'Playing', 9),
+(6, 9, 'Completed', 10),
+(6, 13, 'Dropped', 6),
+(7, 14, 'Completed', 9),
+(7, 15, 'Playing', 9),
+(8, 16, 'Completed', 10),
+(8, 17, 'Wishlist', NULL),
+(9, 18, 'Playing', 8),
+(9, 1, 'Completed', 9),
+(10, 19, 'Completed', 10),
+(10, 20, 'Wishlist', NULL),
+(1, 18, 'Playing', NULL),
+(2, 19, 'Wishlist', NULL),
+(3, 5, 'Playing', 8),
+(4, 1, 'Dropped', 5),
+(5, 2, 'Playing', 9);
 
--- Avaliações - Celeste
-INSERT INTO ratings (rater_id, rated_game_id, rating, rate_description) VALUES
-(6, 2, 9.5, 'Desafiador e tocante.'),
-(7, 2, 8, 'Pixel art linda.'),
-(8, 2, 9, 'História sensível.'),
-(9, 2, 7.5, 'Boa trilha sonora.'),
-(10, 2, 6, 'Muito difícil pra mim.');
+-- -------------------------------------------------------------
+-- Popula a tabela 'friendships'
+-- -------------------------------------------------------------
+INSERT INTO friendships (requester_id, receiver_id, status) VALUES
+(1, 2, 'accepted'),
+(3, 4, 'accepted'),
+(5, 6, 'accepted'),
+(7, 8, 'accepted'),
+(9, 10, 'accepted'),
+(1, 3, 'pending'),
+(2, 4, 'pending'),
+(5, 7, 'rejected'),
+(8, 1, 'accepted'),
+(9, 2, 'accepted');
 
--- Avaliações - Hades
+-- -------------------------------------------------------------
+-- Popula a tabela 'ratings' com notas adicionais
+-- -------------------------------------------------------------
 INSERT INTO ratings (rater_id, rated_game_id, rating, rate_description) VALUES
-(1, 3, 9, 'Viciante!'),
-(2, 3, 8.2, 'Estilo único.'),
-(4, 3, 9.6, 'Combate rápido e divertido.'),
-(6, 3, 9.3, 'Top roguelike.'),
-(7, 3, 8.7, 'História criativa.');
-
--- Avaliações - Stardew Valley
-INSERT INTO ratings (rater_id, rated_game_id, rating, rate_description) VALUES
-(3, 4, 8.5, 'Relaxante e viciante.'),
-(5, 4, 9, 'Simplesmente ótimo.'),
-(6, 4, 7.8, 'Gostei da variedade.'),
-(9, 4, 8.2, 'Muito conteúdo!'),
-(10, 4, 9.1, 'Ótimo pra jogar com amigos.');
-
--- Avaliações - Hollow Knight
-INSERT INTO ratings (rater_id, rated_game_id, rating, rate_description) VALUES
-(1, 5, 10, 'Melhor metroidvania.'),
-(2, 5, 9.3, 'Desafiador e gratificante.'),
-(3, 5, 8.7, 'Level design impecável.'),
-(8, 5, 7.5, 'Arte incrível.'),
-(9, 5, 9, 'Atmosfera única.');
+(1, 1, 10, 'Uma obra-prima, história impecável.'),
+(1, 2, 8.5, 'Gráficos incríveis, mas com alguns bugs.'),
+(2, 3, 9.8, 'Melhor história de Velho Oeste já feita.'),
+(2, 5, 9.5, 'Exploração viciante, mundo gigantesco.'),
+(3, 4, 8.0, 'Diversão garantida, mas a história é um pouco longa.'),
+(4, 6, 10.0, 'Infinito, perfeito para criatividade.'),
+(5, 8, 9.9, 'Uma nova forma de jogar Zelda, revolucionário.'),
+(6, 9, 10.0, 'Terapia pura. Jogo relaxante e divertido.'),
+(7, 14, 9.3, 'Ação frenética, pura adrenalina!'),
+(8, 16, 10.0, 'Uma das melhores sagas de RPG de ficção científica.'),
+(9, 18, 8.7, 'Mundo lindo e combate interessante, mas um pouco repetitivo.'),
+(10, 19, 10.0, 'Arte, história e jogabilidade se combinam perfeitamente.'),
+(1, 18, 8.5, 'Adoro o mundo e os personagens.'),
+(3, 5, 9.1, 'A dificuldade é desafiadora, mas recompensadora.'),
+(9, 1, 9.2, 'História e personagens cativantes.'),
+(4, 1, 5.5, 'Não consegui me conectar com a história. Muito grande.'),
+(5, 2, 9.0, 'Uma experiência de ficção científica imersiva.'),
+(6, 13, 6.0, 'Difícil demais, acabei desistindo.'),
+(2, 1, 9.5, 'Uma aventura épica que define o gênero RPG.'),
+(3, 1, 9.8, 'Simplesmente o melhor jogo que já joguei.'),
+(5, 1, 10.0, 'História e personagens inesquecíveis.'),
+(6, 1, 9.0, 'Excelente, mas a curva de aprendizado inicial é um pouco alta.'),
+(8, 1, 9.7, 'Cada missão secundária parece uma história principal.'),
+(10, 1, 9.6, 'Arte e trilha sonora impecáveis.'),
+(4, 2, 8.0, 'Depois das atualizações, o jogo ficou muito melhor!'),
+(6, 2, 7.5, 'Gráficos impressionantes, mas a história podia ser mais profunda.'),
+(7, 2, 8.8, 'A vida na cidade é vibrante e as missões são ótimas.'),
+(9, 2, 9.0, 'Valeu a pena a espera. A história é envolvente.'),
+(1, 3, 10.0, 'Detalhes e realismo sem precedentes.'),
+(4, 3, 9.7, 'Obra-prima, o final é de partir o coração.'),
+(7, 3, 9.9, 'Um dos melhores jogos da história. Ponto final.'),
+(8, 3, 9.5, 'Um mundo vivo e crível.'),
+(1, 5, 9.9, 'O melhor FromSoftware até hoje, mundo e gameplay perfeitos.'),
+(4, 5, 9.6, 'A liberdade de exploração é insana.'),
+(7, 5, 9.4, 'Desafiador, mas extremamente recompensador.'),
+(8, 5, 9.8, 'A direção de arte é de outro mundo.'),
+(2, 6, 9.5, 'Liberdade total. Jogo para todas as idades.'),
+(3, 6, 10.0, 'Infinito em possibilidades.'),
+(5, 6, 9.8, 'Um clássico atemporal.'),
+(1, 7, 10.0, 'Kratos e Atreus. Uma das melhores narrativas de pai e filho.'),
+(2, 7, 9.8, 'Combate brutal e história emocionante.'),
+(3, 7, 9.9, 'Uma reinvenção perfeita da série.'),
+(1, 8, 10.0, 'Exploração pura em sua melhor forma.'),
+(2, 8, 9.6, 'Um jogo que te surpreende a cada canto.'),
+(4, 8, 9.8, 'A física e os puzzles do mundo são geniais.'),
+(1, 9, 9.5, 'Viciante e relaxante. É impossível parar de jogar.'),
+(2, 9, 10.0, 'O jogo perfeito para relaxar depois de um dia de trabalho.'),
+(1, 10, 9.7, 'Gameplay fluido e viciante, com uma história contada de forma brilhante.'),
+(2, 10, 9.9, 'Personagens carismáticos e arte incrível.'),
+(3, 10, 9.5, 'Um roguelike que qualquer um pode amar.'),
+(1, 12, 10.0, 'O ápice dos RPGs de fantasia. Liberdade e consequências reais.'),
+(2, 12, 9.9, 'Tanta coisa pra fazer que é impossível ver tudo em uma jogada.'),
+(3, 12, 9.7, 'Narrativa e personagens de alto nível.'),
+(1, 14, 9.8, 'Combate rápido, visceral e muito recompensador.'),
+(2, 14, 9.5, 'Uma máquina de matar demônios perfeita.'),
+(3, 14, 9.6, 'FPS puro e sem frescura.'),
+(1, 16, 9.8, 'A melhor trilogia de RPG de ficção científica.'),
+(2, 16, 9.7, 'Shepard é um dos melhores protagonistas da história dos jogos.'),
+(3, 16, 10.0, 'Uma jornada inesquecível.'),
+(2, 18, 9.0, 'Adorei a premissa e a história do mundo.'),
+(3, 18, 9.2, 'As máquinas são um desafio incrível.'),
+(4, 18, 8.9, 'Um mundo lindo de explorar e combates satisfatórios.'),
+(1, 19, 10.0, 'Uma experiência emocional e visualmente deslumbrante.'),
+(2, 19, 9.8, 'Plataforma e história de alto nível.'),
+(3, 19, 9.7, 'A trilha sonora é de arrepiar.'),
+(4, 19, 9.9, 'Melhorias de gameplay em relação ao primeiro.'),
+(1, 20, 9.4, 'Uma história intrigante com poderes telecinéticos divertidos.'),
+(2, 20, 9.0, 'O design de arte é único e a jogabilidade é criativa.'),
+(3, 20, 9.5, 'Misterioso, bizarro e fantástico.'),
+(2, 4, 9.0, 'Ainda é um jogo extremamente divertido, mesmo depois de tantos anos.'),
+(5, 4, 8.5, 'Modo história excelente.'),
+(1, 11, 10.0, 'O melhor JRPG de todos os tempos. Estilo e substância em perfeita sintonia.'),
+(2, 11, 9.8, 'Uma experiência de 100+ horas que vale cada segundo.'),
+(1, 13, 9.6, 'Um metroidvania perfeito. Desafiador e misterioso.'),
+(2, 13, 9.7, 'Mundo e atmosfera incríveis.'),
+(1, 15, 9.5, 'Uma recriação perfeita do clássico. Medo e ação na dose certa.'),
+(2, 15, 9.4, 'Visual impecável e jogabilidade modernizada.'),
+(1, 17, 9.9, 'O sistema de combate é um dos mais satisfatórios que já vi.'),
+(2, 17, 9.8, 'Foco total no combate e timing. Gênio.'),
+(3, 17, 9.7, 'Aprender o ritmo do jogo é a chave para a vitória.');

@@ -1,29 +1,34 @@
 <?php
 include('../database/connection.php');
+header('Content-Type: application/json');
 
-// Recebe o termo da busca
 $term = isset($_GET['term']) ? $_GET['term'] : '';
 
-// Escapa o termo para evitar SQL Injection
-$term = $conn->real_escape_string($term);
+if (empty($term)) {
+    echo json_encode([]);
+    exit;
+}
 
-// Monta o SQL filtrando pelo termo
+$likeTerm = "%" . $term . "%";
+
+// Adicionado id ao select e usando prepared statements
 $sql = "
-    SELECT title AS name, 'game' AS type, game_cover_url 
-    FROM games 
-    WHERE title LIKE '%$term%'
+    (SELECT id, title AS name, 'game' AS type, game_cover_url FROM games WHERE title LIKE ?)
     UNION
-    SELECT username AS name, 'user' AS type, NULL AS game_cover_url 
-    FROM users 
-    WHERE username LIKE '%$term%'
+    (SELECT id, username AS name, 'user' AS type, NULL AS game_cover_url FROM users WHERE username LIKE ?)
+    LIMIT 10
 ";
 
-$result = $conn->query($sql);
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('ss', $likeTerm, $likeTerm);
+$stmt->execute();
+$result = $stmt->get_result();
 
 $searchRequests = [];
 if ($result && $result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $searchRequests[] = [
+            'id' => $row['id'],
             'name' => $row['name'],
             'type' => $row['type'],
             'game_cover_url' => $row['game_cover_url']
@@ -31,7 +36,6 @@ if ($result && $result->num_rows > 0) {
     }
 }
 
-// Retorna JSON
-header('Content-Type: application/json');
 echo json_encode($searchRequests);
+$conn->close();
 ?>

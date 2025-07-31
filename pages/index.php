@@ -87,11 +87,15 @@ if ($result->num_rows > 0) {
             if (data.length === 0) {
                 busca.innerHTML = '<p class="search-result-empty">Nenhum resultado encontrado.</p>';
             } else {
-                data.slice(0, 8).forEach(item => {
+                data.slice(0, 5).forEach(item => {
                     let img = item.type === 'game' && item.game_cover_url
+
+                        
                         ? `<img src="${item.game_cover_url}" alt="Capa do Jogo" class="search-result-img">`
                         : `<span class="search-result-img">👤</span>`;
-                    busca.innerHTML += `
+                    busca.innerHTML +=`
+
+                    <a href="Gamepage.php?id=${item.id}">
                         <div class="search-result-item">
                             ${img}
                             <div class="search-result-info">
@@ -99,6 +103,8 @@ if ($result->num_rows > 0) {
                                 <span class="search-result-type">${item.type === 'game' ? 'Jogo' : 'Usuário'}</span>
                             </div>
                         </div>
+
+                    </a>
                     `;
                 });
             }
