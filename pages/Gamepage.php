@@ -55,27 +55,10 @@ $average_rating = $game['average_rating'] ? round($game['average_rating'], 1) : 
 <body>
 
     <!-- Cabeçalho -->
-    <header>
-        <div class="container">
-            <div class="header-top">
-                <h1><a href="index.php" style="text-decoration: none; color: inherit;">🎮 Game Shelf</a></h1>
-            </div>
-            <div class="header-bottom">
-                <nav>
-                    <ul>
-                        <li><a href="index.php">Início</a></li>
-                        <li><a href="#">Meus Jogos</a></li>
-                        <li><a href="#">Explorar</a></li>
-                        <li><a href="#">Comunidade</a></li>
-                    </ul>
-                </nav>
-                <div class="auth-buttons">
-                    <button class="login-btn" onclick="window.location.href='login.php'">Login</button>
-                    <button class="register-btn" onclick="window.location.href='register.php'">Registrar</button>
-                </div>
-            </div>
-        </div>
-    </header>
+    <?php
+    include('../PhP/header.php');
+    renderHeader();
+    ?>
 
     <!-- Conteúdo da Página do Jogo -->
     <main>

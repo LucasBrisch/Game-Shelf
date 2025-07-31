@@ -32,4 +32,11 @@ function redirectIfLoggedIn() {
         exit;
     }
 }
+
+function logout() {
+    header('Location: ../pages/index.php');
+    session_destroy();
+}
+
+
 ?>

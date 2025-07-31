@@ -47,33 +47,10 @@ if ($result->num_rows > 0) {
 <body>
 
     <!-- Cabeçalho -->
-    <header>
-        <div class="container">
-            <div class="header-top">
-                <h1>🎮 Game Shelf</h1>
-            </div>
-            <div class="header-bottom">
-                <nav>
-                    <ul>
-                        <li><a href="index.php">Início</a></li>
-                        <li><a href="#">Meus Jogos</a></li>
-                        <li><a href="games.php">Explorar</a></li>
-                        <li><a href="#">Comunidade</a></li>
-                    </ul>
-                </nav>
-                <div class="search-bar" style="position:relative;">
-                    <span class="search-icon">&#128269;</span> 
-                    <input type="search" placeholder="Pesquisar jogos, pessoas..." id="main-search" oninput="rendersearch(this.value)">
-                    <div class="search-modal-results" id="modaldebusca" style="display:none;"></div>
-                </div>
-                <div class="auth-buttons">
-                    <button class="login-btn" onclick="window.location.href='login.php'">Login</button>
-                    <button class="register-btn" onclick="window.location.href='register.php'">Registrar</button>
-                </div>
-            </div>
-        </div>
-    </header>
-
+    <?php
+    include('../PhP/header.php');
+    renderHeader();
+    ?>
 
 <script>
     function rendersearch(searchtext) {
