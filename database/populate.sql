@@ -39,7 +39,21 @@ INSERT INTO games (title, description, game_cover_url, release_date, developer, 
 ('Sekiro: Shadows Die Twice', 'Neste jogo de ação e aventura, você é o "Lobo de um braço só", um shinobi desgraçado, resgatado à beira da morte. Sekiro: Shadows Die Twice se passa no Japão feudal e exige maestria no combate com espada. A mecânica de postura e o uso estratégico de próteses shinobi fazem dele um jogo de FromSoftware único e desafiador.', 'https://tse4.mm.bing.net/th/id/OIP.N2gl68MKG_Mw5nUMRXKi2QHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', '2019-03-22', 'FromSoftware', 'Ação, Aventura'),
 ('Horizon Zero Dawn', 'Em um futuro pós-apocalíptico onde a natureza recuperou o planeta, máquinas colossais em forma de animais dominam a terra. Jogue como Aloy, uma caçadora banida que se aventura a descobrir os mistérios por trás do seu nascimento e do mundo em ruínas que ela habita. Horizon Zero Dawn é um RPG de ação de mundo aberto com um combate único e uma história fascinante.', 'https://assets-prd.ignimgs.com/2024/09/24/horizonremastered-1727220475281.jpg', '2017-02-28', 'Guerrilla Games', 'Ação, RPG'),
 ('Ori and the Will of the Wisps', 'Acompanhe Ori em sua jornada em um mundo vasto e exótico para salvar seu amigo Ku e, por fim, curar o reino de Niwen. Ori and the Will of the Wisps é um jogo de plataforma 2D com gráficos e trilha sonora impressionantes, que combina combate fluído e desafios de plataforma emocionantes com uma narrativa tocante e emotiva.', 'https://th.bing.com/th/id/R.7ba8867ffe8fa3e904f71761b24b5303?rik=%2fkqogcEbT67%2fqw&pid=ImgRaw&r=0', '2020-03-11', 'Moon Studios', 'Plataforma, Aventura'),
-('Control', 'Após uma força de outro mundo invadir o The Oldest House, o quartel-general de uma agência secreta, Jesse Faden se torna a nova diretora. Use poderes telecinéticos e armas mutáveis para lutar contra a Hiss, uma ameaça que distorce a realidade. Control é um jogo de ação com uma história intrigante e uma atmosfera de ficção científica bizarra e misteriosa.', 'https://tse1.mm.bing.net/th/id/OIP.CkA_oDscqXBicFdYtg9uwwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', '2019-08-27', 'Remedy Entertainment', 'Ação, Aventura');
+('Control', 'Após uma força de outro mundo invadir o The Oldest House, o quartel-general de uma agência secreta, Jesse Faden se torna a nova diretora. Use poderes telecinéticos e armas mutáveis para lutar contra a Hiss, uma ameaça que distorce a realidade. Control é um jogo de ação com uma história intrigante e uma atmosfera de ficção científica bizarra e misteriosa.', 'https://tse1.mm.bing.net/th/id/OIP.CkA_oDscqXBicFdYtg9uwwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', '2019-08-27', 'Remedy Entertainment', 'Ação, Aventura'),
+('Bloodborne', 'Explore Yharnam, uma cidade gótica assolada por uma praga que transforma seus habitantes em monstros. Bloodborne é um RPG de ação com combates rápidos e brutais, cenários sombrios e uma atmosfera lovecraftiana.', 'https://tse3.mm.bing.net/th/id/OIP.zB9O-FOzt5PVWCx222SzpQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', '2015-03-24', 'FromSoftware', 'Ação, RPG, Terror'),
+('Final Fantasy VII Remake', 'Reviva a jornada de Cloud Strife e seus aliados contra a corporação Shinra em Midgar. Com gráficos modernos, combate híbrido e uma história expandida, este remake reinventa o clássico JRPG para uma nova geração.', 'https://th.bing.com/th/id/R.c1bf233be127714703ee4272a9e04f31?rik=sH7Por8oXnj0hg&pid=ImgRaw&r=0', '2020-04-10', 'Square Enix', 'RPG, Ação'),
+('Ghost of Tsushima', 'Embarque como Jin Sakai, um samurai em busca de proteger sua terra natal durante a invasão mongol do Japão. Misturando stealth, combate de espada e exploração de mundo aberto, Ghost of Tsushima é uma carta de amor à cultura japonesa.', 'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/09/ghost-of-tsushima-director-s-cut.jpg', '2020-07-17', 'Sucker Punch Productions', 'Ação, Aventura, Mundo Aberto'),
+('Assassin''s Creed Valhalla', 'Viva como Eivor, um guerreiro viking que lidera seu clã na invasão da Inglaterra do século IX. Explore vilas, conquiste territórios e participe de batalhas épicas enquanto molda o destino do seu povo.', 'https://tse4.mm.bing.net/th/id/OIP.EpKMvwzEG4jvtH4_2npVBgHaJ4?rs=1&pid=ImgDetMain&o=7&rm=3', '2020-11-10', 'Ubisoft', 'Ação, RPG, Mundo Aberto'),
+('Death Stranding', 'Encarne Sam Porter Bridges em uma missão para reconectar uma América pós-apocalíptica fragmentada. Death Stranding mistura exploração, narrativa cinematográfica e um sistema único de construção colaborativa online.', 'https://assets1.ignimgs.com/2019/07/21/death-stranding---button-20197-1563692244528.jpg', '2019-11-08', 'Kojima Productions', 'Aventura, Ficção Científica'),
+('Dark Souls III', 'Mergulhe em um mundo sombrio e decadente em Dark Souls III, onde você deve enfrentar inimigos brutais e chefes colossais. O combate estratégico e a exploração recompensadora tornam este RPG de ação um clássico moderno.', 'https://tse4.mm.bing.net/th/id/OIP.-juXmc5Mu01uU_hGXBqB_AHaHa?rs=1&pid=ImgDetMain&o=7&rm=3', '2016-03-24', 'FromSoftware', 'RPG, Ação'),
+('Nier: Automata', 'Controle androides de combate em uma Terra pós-apocalíptica dominada por máquinas alienígenas. Nier: Automata combina combate dinâmico, múltiplos finais e reflexões filosóficas sobre a existência.', 'https://tse4.mm.bing.net/th/id/OIP.bxK58bwJzuy0DtxG6oUvlgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3', '2017-02-23', 'PlatinumGames', 'Ação, RPG'),
+('Monster Hunter: World', 'Entre em caçadas épicas contra monstros colossais em ecossistemas vivos e dinâmicos. Monster Hunter: World oferece jogabilidade cooperativa e um vasto arsenal de armas e armaduras para criar.', 'https://th.bing.com/th/id/R.dee027349d41c8e75cb866e389e06048?rik=NzpurqruU8JMhA&pid=ImgRaw&r=0', '2018-01-26', 'Capcom', 'Ação, RPG, Coop'),
+('Dragon Quest XI: Echoes of an Elusive Age', 'Uma aventura clássica em um mundo vibrante com personagens cativantes e uma história emocionante. Dragon Quest XI combina elementos tradicionais de JRPG com visuais modernos e um sistema de combate por turnos.', 'https://tse1.mm.bing.net/th/id/OIP.V7U0fKaSCrBT5HAlYF-uJwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3', '2017-07-29', 'Square Enix', 'RPG'),
+('Diablo IV', 'Retorne ao mundo sombrio de Sanctuary em Diablo IV. Escolha entre diversas classes, lute contra hordas demoníacas e explore dungeons geradas proceduralmente em um RPG de ação repleto de loot.', 'https://cdn.wccftech.com/wp-content/uploads/2022/08/diablo-iv-HD-scaled.jpg', '2023-06-06', 'Blizzard Entertainment', 'RPG, Ação'),
+('The Last of Us Part II', 'Continue a jornada de Ellie em um mundo devastado por infectados e pela violência humana. The Last of Us Part II aprofunda sua narrativa emocional e traz combates intensos em cenários detalhados.', 'https://tse1.mm.bing.net/th/id/OIP.eWLmUSdnal7iiba9RdnUZQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', '2020-06-19', 'Naughty Dog', 'Ação, Aventura'),
+('Alan Wake 2', 'Mergulhe em uma narrativa de terror psicológico enquanto o escritor Alan Wake tenta escapar de uma realidade distorcida. Alan Wake 2 mistura suspense, investigação e combate sobrenatural.', 'https://www.gamereactor.no/media/89/alanwake2_4028943b.jpg', '2023-10-27', 'Remedy Entertainment', 'Terror, Aventura'),
+('Cuphead', 'Cuphead e Mugman devem pagar uma dívida com o diabo enfrentando chefes criativos e desafiadores em combates inspirados em desenhos animados da década de 1930. Um jogo de run and gun com arte única e dificuldade intensa.', 'https://tse3.mm.bing.net/th/id/OIP.LYRCopDTjUqGJaF0TjzcTgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', '2017-09-29', 'Studio MDHR', 'Plataforma, Ação');
+
 
 -- -------------------------------------------------------------
 -- Popula a tabela 'user_games'
@@ -170,4 +184,43 @@ INSERT INTO ratings (rater_id, rated_game_id, rating, rate_description) VALUES
 (2, 15, 9.4, 'Visual impecável e jogabilidade modernizada.'),
 (1, 17, 9.9, 'O sistema de combate é um dos mais satisfatórios que já vi.'),
 (2, 17, 9.8, 'Foco total no combate e timing. Gênio.'),
-(3, 17, 9.7, 'Aprender o ritmo do jogo é a chave para a vitória.');
+(3, 17, 9.7, 'Aprender o ritmo do jogo é a chave para a vitória.'),
+(4, 21, 9.2, 'História sombria e atmosfera única. Vale cada minuto.'),
+(5, 21, 8.9, 'Combate divertido, mas o ritmo pode ser lento às vezes.'),
+(6, 21, 9.5, 'Ótima mistura de narrativa e ação em mundo aberto.'),
+
+(2, 22, 10.0, 'Simplesmente revolucionário para jogos de terror indie.'),
+(3, 22, 9.6, 'Atmosfera densa e momentos genuinamente assustadores.'),
+(7, 22, 9.4, 'Minimalista, mas extremamente impactante.'),
+
+(1, 23, 9.8, 'Uma obra de arte sobre tristeza e amizade.'),
+(4, 23, 9.5, 'Visual e trilha sonora emocionantes.'),
+(8, 23, 9.7, 'Plataforma de qualidade com uma narrativa tocante.'),
+
+(3, 24, 9.9, 'Ação brutal e viciante, é difícil parar de jogar.'),
+(5, 24, 9.7, 'Um dos melhores beat em ups já criados.'),
+(9, 24, 9.5, 'Chefes icônicos e desafio bem balanceado.'),
+
+(1, 25, 9.4, 'Terror psicológico incrível e muito imersivo.'),
+(6, 25, 9.1, 'Mistério constante e tensão do começo ao fim.'),
+(10, 25, 9.3, 'Clássico instantâneo do terror contemporâneo.'),
+
+(2, 26, 9.6, 'Combate de samurais impecável e história emocionante.'),
+(3, 26, 9.8, 'Exploração e ambientação no Japão feudal são de cair o queixo.'),
+(4, 26, 9.7, 'Missões extras muito bem feitas e inspiradoras.'),
+
+(5, 27, 9.0, 'Um roguelike extremamente viciante e bem balanceado.'),
+(7, 27, 8.8, 'Estilo retrô charmoso e gameplay desafiador.'),
+(8, 27, 9.1, 'Cada run é única e cheia de surpresas.'),
+
+(1, 28, 10.0, 'Melhor jogo de corrida arcade da geração.'),
+(2, 28, 9.7, 'Mundo aberto e eventos dinâmicos incríveis.'),
+(3, 28, 9.5, 'Visual deslumbrante e jogabilidade fluida.'),
+
+(4, 29, 9.8, 'A aventura LEGO definitiva para fãs de Star Wars.'),
+(5, 29, 9.6, 'Cheio de humor e nostalgia na medida certa.'),
+(6, 29, 9.7, 'Diversão garantida tanto solo quanto co-op.'),
+
+(2, 30, 9.2, 'Simulação de fazenda relaxante e viciante.'),
+(3, 30, 9.0, 'Muitas opções de personalização e liberdade total.'),
+(9, 30, 9.3, 'Perfeito para jogar em família ou relaxar sozinho.');
