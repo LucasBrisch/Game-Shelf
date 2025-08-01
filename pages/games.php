@@ -1,13 +1,23 @@
 <?php
 include('../database/connection.php');
 
-$sql = "
+/* $sql = "
     SELECT g.*, AVG(r.rating) AS average_rating
     FROM games g
     LEFT JOIN ratings r ON g.id = r.rated_game_id
     GROUP BY g.id
     ORDER BY average_rating DESC
-";  
+"; */ 
+$indexAtual = isset($_GET['jogos']) ? intval($_GET['jogos']) : 0;
+$quantidadeItems = 10;
+$sql = "
+    SELECT g.*, AVG(r.rating) AS average_rating
+    FROM games g
+    LEFT JOIN ratings r ON g.id = r.rated_game_id
+    GROUP BY g.id
+    ORDER BY g.id ASC
+    LIMIT $quantidadeItems OFFSET $indexAtual 
+";
 
 $result = $conn->query($sql);
 $num_rows = 0;
@@ -30,6 +40,22 @@ if ($result->num_rows > 0) {
             'average_rating' => is_null($row['average_rating']) ? null : round(floatval($row['average_rating']), 2)
         ];
     }
+}
+
+
+
+
+$sql2 = "
+    SELECT COUNT(*) AS total_jogos
+    FROM games
+";
+$result2 = $conn->query($sql2);
+
+if ($result2->num_rows > 0) {
+    $row = $result2->fetch_assoc();
+    $totalJogos = $row['total_jogos'];
+} else {
+    $totalJogos = 0;
 }
 ?>
 
@@ -109,11 +135,18 @@ document.addEventListener('keydown', function(e) {
     <main>
         <div class="container">
             <section>
-                <h3 class="section-title">Jogos : <?php echo "$num_rows"  ?>  </h3>
+                <h3 class="section-title">Jogos : <?php echo "$totalJogos"  ?>  </h3>
+                <div class="passarPagina">
+                    <button class="prev" onclick="passarPagina(-10)">&#10094</button>
+                    <button class="next" onclick="passarPagina(10)">&#10095</button>
+                </div>
                 <div class="game-grid" id="jogos">
+                    
             </section>
-
-
+                <div class="passarPagina">
+                    <button class="prev" onclick="passarPagina(-10)">&#10094</button>
+                    <button class="next" onclick="passarPagina(10)">&#10095</button>
+                </div>
 
 <script> 
 function renderTable(filtered) {
@@ -125,7 +158,7 @@ function renderTable(filtered) {
         return;
     }
 
-    filtered.forEach(req => {
+    filtered.slice(0, 10).forEach(req => {
         const div = document.createElement('div');
         div.className = 'game-card';
         div.dataset.gameId = req.id;
@@ -233,6 +266,25 @@ function renderTable(filtered) {
     </div>
 
     
-    
+<script>
+let indexAtual = <?php echo $indexAtual; ?>;
+const totalJogos = <?php echo $totalJogos; ?>;
+const itensPorPagina = 10;
+
+function passarPagina(direcao) {
+    indexAtual += direcao;
+
+    if (indexAtual < 0) {
+        indexAtual = 0;
+    }
+
+    if (indexAtual > totalJogos - itensPorPagina) {
+        indexAtual = Math.max(0, totalJogos - itensPorPagina);
+    }
+
+    window.location.href = `games.php?jogos=${indexAtual}`;
+}
+
+</script>
 </body>
 </html>
