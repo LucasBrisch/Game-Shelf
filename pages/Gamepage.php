@@ -51,6 +51,7 @@ $average_rating = $game['average_rating'] ? round($game['average_rating'], 1) : 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Css/styles.css">
     <link rel="stylesheet" href="../Css/game-page.css">
+    <link rel="stylesheet" href="../Css/addtolist-modal.css">
 </head>
 <body>
 
@@ -69,7 +70,7 @@ $average_rating = $game['average_rating'] ? round($game['average_rating'], 1) : 
                 <aside class="game-sidebar">
                     <img src="<?php echo htmlspecialchars($game['game_cover_url']); ?>" alt="Capa de <?php echo htmlspecialchars($game['title']); ?>" class="sidebar-cover-img">
                     <div class="sidebar-actions">
-                        <button class="add-to-list-btn">Adicionar à Minha Lista</button>
+                        <button class="add-to-list-btn" onclick="checkLoginAndAddToList(<?php echo $game_id; ?>, '<?php echo addslashes($game['title']); ?>', '<?php echo addslashes($game['game_cover_url']); ?>')">Adicionar à Minha Lista</button>
                     </div>
                 </aside>
 
@@ -111,6 +112,13 @@ $average_rating = $game['average_rating'] ? round($game['average_rating'], 1) : 
             <p>&copy; <?php echo date('Y'); ?> Game Shelf. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Indica se o usuário está logado (para o JavaScript)
+        const userLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
+    </script>
+    <script src="../js/addtolist.js"></script>
 
 </body>
 </html>

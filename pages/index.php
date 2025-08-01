@@ -41,6 +41,7 @@ if ($result->num_rows > 0) {
     <title>Game Shelf - Sua Estante de Jogos</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Css/styles.css">
+    <link rel="stylesheet" href="../Css/addtolist-modal.css">
 </head>
 <body>
 
@@ -50,58 +51,7 @@ if ($result->num_rows > 0) {
     ?>
     
 
-<script>
-    function rendersearch(searchtext) {
-    const busca = document.getElementById('modaldebusca');
-    busca.style.display = searchtext.length > 0 ? 'block' : 'none';
-    busca.innerHTML = '';
 
-    if (searchtext.length === 0) return;
-
-    fetch('../apis/search.php?term=' + encodeURIComponent(searchtext))
-        .then(res => res.json())
-        .then(data => {
-            if (data.length === 0) {
-                busca.innerHTML = '<p class="search-result-empty">Nenhum resultado encontrado.</p>';
-            } else {
-                data.slice(0, 5).forEach(item => {
-                    let img = item.type === 'game' && item.game_cover_url
-
-                        
-                        ? `<img src="${item.game_cover_url}" alt="Capa do Jogo" class="search-result-img">`
-                        : `<span class="search-result-img">👤</span>`;
-                    busca.innerHTML +=`
-
-                    <a href="Gamepage.php?id=${item.id}">
-                        <div class="search-result-item">
-                            ${img}
-                            <div class="search-result-info">
-                                <span class="search-result-name">${item.name}</span>
-                                <span class="search-result-type">${item.type === 'game' ? 'Jogo' : 'Usuário'}</span>
-                            </div>
-                        </div>
-
-                    </a>
-                    `;
-                });
-            }
-        });
-}
-
-// Fecha o modal ao clicar fora ou pressionar ESC
-document.addEventListener('click', function(e) {
-    const busca = document.getElementById('modaldebusca');
-    const searchBar = document.getElementById('main-search');
-    if (busca.style.display === 'block' && !busca.contains(e.target) && e.target !== searchBar) {
-        busca.style.display = 'none';
-    }
-});
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        document.getElementById('modaldebusca').style.display = 'none';
-    }
-});
-</script>
 
     <!-- Conteúdo Principal -->
     <main>
@@ -171,6 +121,12 @@ function renderTable(filtered) {
                     document.getElementById('modalGameTitle').textContent = data.error;
                     return;
                 }
+                
+                // Armazena dados globalmente para o botão de adicionar
+                currentModalGameId = gameId;
+                currentModalGameTitle = data.title;
+                currentModalGameImage = data.game_cover_url;
+                
                 document.getElementById('modalGameImage').src = data.game_cover_url;
                 document.getElementById('modalGameTitle').textContent = data.title;
                 document.getElementById('modalGameGenreStudio').textContent = `${data.genre} • ${data.developer}`;
@@ -196,10 +152,18 @@ function renderTable(filtered) {
         }
         if (e.target.id === 'closeModalBtn') {
             document.getElementById('gameDetailsModal').style.display = 'none';
+            // Limpa variáveis globais
+            currentModalGameId = null;
+            currentModalGameTitle = '';
+            currentModalGameImage = '';
         }
         // Fecha modal ao clicar fora do conteúdo
         if (e.target.id === 'gameDetailsModal') {
             document.getElementById('gameDetailsModal').style.display = 'none';
+            // Limpa variáveis globais
+            currentModalGameId = null;
+            currentModalGameTitle = '';
+            currentModalGameImage = '';
         }
     });
 </script>           
@@ -242,11 +206,28 @@ function renderTable(filtered) {
                 </div>
             </div>
             <p id="modalGameDescription" class="modal-description"></p>
-            <button class="add-to-list-btn">Adicionar à minha lista</button>
+            <button class="add-to-list-btn" id="modalAddToListBtn" onclick="addFromModal()">Adicionar à minha lista</button>
         </div>
     </div>
 
-    
+    <!-- Scripts -->
+    <script>
+        // Indica se o usuário está logado (para o JavaScript)
+        const userLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
+        
+        // Variáveis globais para armazenar dados do jogo atual no modal
+        let currentModalGameId = null;
+        let currentModalGameTitle = '';
+        let currentModalGameImage = '';
+        
+        // Função para adicionar jogo à lista a partir do modal
+        function addFromModal() {
+            if (currentModalGameId) {
+                checkLoginAndAddToList(currentModalGameId, currentModalGameTitle, currentModalGameImage);
+            }
+        }
+    </script>
+    <script src="../js/addtolist.js"></script>
     
 </body>
 </html>
