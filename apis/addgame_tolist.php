@@ -75,6 +75,35 @@ try {
         $update_stmt->bind_param('siii', $status, $personal_rating, $user_id, $game_id);
         
         if ($update_stmt->execute()) {
+            // Atualiza também na tabela ratings se houver nota
+            if ($personal_rating !== null) {
+                $rating_check_sql = "SELECT id FROM ratings WHERE rater_id = ? AND rated_game_id = ?";
+                $rating_check_stmt = $conn->prepare($rating_check_sql);
+                $rating_check_stmt->bind_param('ii', $user_id, $game_id);
+                $rating_check_stmt->execute();
+                $rating_result = $rating_check_stmt->get_result();
+                
+                if ($rating_result->num_rows > 0) {
+                    // Atualiza rating existente
+                    $rating_update_sql = "UPDATE ratings SET rating = ? WHERE rater_id = ? AND rated_game_id = ?";
+                    $rating_update_stmt = $conn->prepare($rating_update_sql);
+                    $rating_update_stmt->bind_param('iii', $personal_rating, $user_id, $game_id);
+                    $rating_update_stmt->execute();
+                } else {
+                    // Insere novo rating
+                    $rating_insert_sql = "INSERT INTO ratings (rater_id, rated_game_id, rating) VALUES (?, ?, ?)";
+                    $rating_insert_stmt = $conn->prepare($rating_insert_sql);
+                    $rating_insert_stmt->bind_param('iii', $user_id, $game_id, $personal_rating);
+                    $rating_insert_stmt->execute();
+                }
+            } else {
+                // Remove rating se nota foi removida
+                $rating_delete_sql = "DELETE FROM ratings WHERE rater_id = ? AND rated_game_id = ?";
+                $rating_delete_stmt = $conn->prepare($rating_delete_sql);
+                $rating_delete_stmt->bind_param('ii', $user_id, $game_id);
+                $rating_delete_stmt->execute();
+            }
+            
             $status_map = [
                 'Playing' => 'Jogando',
                 'Completed' => 'Completo',
@@ -100,6 +129,14 @@ try {
         $insert_stmt->bind_param('iisi', $user_id, $game_id, $status, $personal_rating);
         
         if ($insert_stmt->execute()) {
+            // Insere também na tabela ratings se houver nota
+            if ($personal_rating !== null) {
+                $rating_insert_sql = "INSERT INTO ratings (rater_id, rated_game_id, rating) VALUES (?, ?, ?)";
+                $rating_insert_stmt = $conn->prepare($rating_insert_sql);
+                $rating_insert_stmt->bind_param('iii', $user_id, $game_id, $personal_rating);
+                $rating_insert_stmt->execute();
+            }
+            
             $status_map = [
                 'Playing' => 'Jogando',
                 'Completed' => 'Completo',
