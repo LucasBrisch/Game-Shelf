@@ -44,7 +44,7 @@ function renderHeader($currentPage = '') {
                         <li><a href="index.php">Início</a></li>
                         <li><a href="gamelist.php">Meus Jogos</a></li>
                         <li><a href="games.php">Explorar</a></li>
-                        <li><a href="#">Amigos</a></li>
+                        <li><a href="friends.php">Amigos</a></li>
                     </ul>
                 </nav>
                 <div class="search-bar" style="position:relative;">
