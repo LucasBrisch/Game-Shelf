@@ -21,6 +21,12 @@ if ($receiver_id <= 0 || empty($message)) {
     exit;
 }
 
+// Validate message length (max 5000 characters)
+if (strlen($message) > 5000) {
+    echo json_encode(['success' => false, 'error' => 'Mensagem muito longa. Máximo 5000 caracteres.']);
+    exit;
+}
+
 $sender_id = $_SESSION['user_id'];
 
 // Check if sender and receiver are the same

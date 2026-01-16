@@ -16,6 +16,8 @@
 - 📊 Estatísticas do usuário (número de jogos, médias, tempo estimado, etc.)
 - 🔍 Página com detalhes individuais de cada jogo
 - 🏆 Ranking de jogos mais populares entre os usuários
+- 👥 Sistema de amizades
+- 💬 Chat direto entre amigos com interface intuitiva e moderna
 - 🔗 Integração futura com a API da Steam para importar jogos automaticamente
 
 ---

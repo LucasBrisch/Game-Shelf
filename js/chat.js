@@ -30,6 +30,7 @@ function initChatModal() {
                                 class="chat-input" 
                                 placeholder="Digite sua mensagem..."
                                 rows="1"
+                                maxlength="5000"
                             ></textarea>
                         </div>
                         <button class="chat-send-btn" id="chatSendBtn" onclick="sendMessage()">
