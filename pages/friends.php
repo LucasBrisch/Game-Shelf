@@ -179,20 +179,42 @@ requireLogin();
                             </div>
                         `;
                     } else {
-                        friendsList.innerHTML = data.friends.map(friend => `
-                            <div class="friend-card">
-                                <div class="friend-info">
-                                    <div class="friend-avatar">${friend.full_name.charAt(0).toUpperCase()}</div>
-                                    <div class="friend-details">
-                                        <h3>${friend.full_name}</h3>
-                                        <p>@${friend.username}</p>
+                        // Helper function to escape HTML
+                        function escapeHtml(text) {
+                            const div = document.createElement('div');
+                            div.textContent = text;
+                            return div.innerHTML;
+                        }
+                        
+                        friendsList.innerHTML = data.friends.map(friend => {
+                            const escapedName = escapeHtml(friend.full_name);
+                            const escapedUsername = escapeHtml(friend.username);
+                            const firstLetter = escapedName.charAt(0).toUpperCase();
+                            
+                            return `
+                                <div class="friend-card">
+                                    <div class="friend-info">
+                                        <div class="friend-avatar">${firstLetter}</div>
+                                        <div class="friend-details">
+                                            <h3>${escapedName}</h3>
+                                            <p>@${escapedUsername}</p>
+                                        </div>
                                     </div>
+                                    <button class="chat-btn" data-friend-id="${friend.id}" data-friend-name="${escapedName}">
+                                        💬 Conversar
+                                    </button>
                                 </div>
-                                <button class="chat-btn" onclick="openChatModal(${friend.id}, '${friend.full_name}')">
-                                    💬 Conversar
-                                </button>
-                            </div>
-                        `).join('');
+                            `;
+                        }).join('');
+                        
+                        // Add event listeners to chat buttons
+                        document.querySelectorAll('.chat-btn').forEach(btn => {
+                            btn.addEventListener('click', function() {
+                                const friendId = parseInt(this.dataset.friendId);
+                                const friendName = this.dataset.friendName;
+                                openChatModal(friendId, friendName);
+                            });
+                        });
                     }
                 } else {
                     friendsList.innerHTML = `

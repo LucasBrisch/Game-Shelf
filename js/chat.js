@@ -136,7 +136,8 @@ function renderMessages(messages) {
         return;
     }
     
-    // Store scroll position
+    // Store scroll position and check if this is first render
+    const wasEmpty = messagesContainer.querySelector('.chat-loading, .chat-empty') !== null;
     const isScrolledToBottom = messagesContainer.scrollHeight - messagesContainer.clientHeight <= messagesContainer.scrollTop + 50;
     
     // Build messages HTML
@@ -168,8 +169,8 @@ function renderMessages(messages) {
     
     messagesContainer.innerHTML = html;
     
-    // Scroll to bottom if was already at bottom or if this is the first load
-    if (isScrolledToBottom || messages.length === 1) {
+    // Scroll to bottom if was already at bottom or if this is the first render
+    if (isScrolledToBottom || wasEmpty) {
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
 }
