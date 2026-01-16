@@ -12,6 +12,13 @@ if (!isLoggedIn()) {
 
 // Get POST data
 $data = json_decode(file_get_contents('php://input'), true);
+
+// Validate JSON
+if (json_last_error() !== JSON_ERROR_NONE) {
+    echo json_encode(['success' => false, 'error' => 'Dados JSON inválidos.']);
+    exit;
+}
+
 $receiver_id = isset($data['receiver_id']) ? intval($data['receiver_id']) : 0;
 $message = isset($data['message']) ? trim($data['message']) : '';
 
