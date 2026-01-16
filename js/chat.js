@@ -18,7 +18,7 @@ function initChatModal() {
                                 <p id="chatFriendRole">Amigo</p>
                             </div>
                         </div>
-                        <button class="chat-close-btn" onclick="closeChatModal()">&times;</button>
+                        <button class="chat-close-btn" id="chatCloseBtn">&times;</button>
                     </div>
                     <div class="chat-messages" id="chatMessages">
                         <div class="chat-loading">Carregando mensagens</div>
@@ -33,7 +33,7 @@ function initChatModal() {
                                 maxlength="5000"
                             ></textarea>
                         </div>
-                        <button class="chat-send-btn" id="chatSendBtn" onclick="sendMessage()">
+                        <button class="chat-send-btn" id="chatSendBtn">
                             ➤
                         </button>
                     </div>
@@ -41,6 +41,12 @@ function initChatModal() {
             </div>
         `;
         document.body.insertAdjacentHTML('beforeend', modalHTML);
+        
+        // Add close button handler
+        document.getElementById('chatCloseBtn').addEventListener('click', closeChatModal);
+        
+        // Add send button handler
+        document.getElementById('chatSendBtn').addEventListener('click', sendMessage);
         
         // Add enter key handler
         document.getElementById('chatInput').addEventListener('keydown', function(e) {
